@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quy doi tien te</title>
+</head>
+<body>
+        Amount
+        <input type="number" id="sotien"/><br/>
+        From Currency
+        <select id="FromCur">
+            <option value="23000" >VNdong</option>
+            <option value="1">USD</option>
+            <option value="0.89">EURO</option>
+            <option value="6.5">Nhandante</option>
+            <option value="1.36">DollarSin</option>
+            <option value="1141">Won</option>
+            <option value="112">Yen</option>
+            <option value="63.98">RupNga</option>
+            <option value="8500">KipLao</option>
+            <option value="0.77">BangAnh</option>
+        </select>
+        <br/>
+        To Currency
+        <select id="ToCur">
+            <option value="23000" >VNdong</option>
+            <option value="1">USD</option>
+            <option value="0.89">EURO</option>
+            <option value="6.5">Nhandante</option>
+            <option value="1.36">DollarSin</option>
+            <option value="1141">Won</option>
+            <option value="112">Yen</option>
+            <option value="63.98">RupNga</option>
+            <option value="8500">KipLao</option>
+            <option value="0.77">BangAnh</option>
+        </select><br/>
+        <button onclick="Quydoi()">Convert</button><br/>
+        ket qua <input id="ketqua">
+    <script>
+        function Quydoi() {
+            let Tien = document.getElementById('sotien').value;
+            let Sotien = parseFloat(Tien);
+            if (!Sotien) {
+                document.getElementById('ketqua').value = "Hay nhap so tien";
+            }
+            if (Sotien < 0) {
+                document.getElementById('ketqua').value = "Nhap lai ";
+            } if (Sotien>0) {
+                let ToCurr = document.getElementById('ToCur').value;
+                let FromCurr = document.getElementById('FromCur').value;
+                Kq = Sotien * ToCurr / FromCurr;
+                Result=Kq.toFixed(2);
+                document.getElementById('ketqua').value = Result;
+            }
+        }
+    </script>
+</body>
+</html>
